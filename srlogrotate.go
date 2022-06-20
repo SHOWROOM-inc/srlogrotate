@@ -36,6 +36,12 @@ func (l *logger) Write(p []byte) (int, error) {
 		}
 	}
 
+	if l.shouldRotate() {
+		if err := l.rotate(); err != nil {
+			return 0, err
+		}
+	}
+
 	return l.file.Write(p)
 }
 
@@ -52,6 +58,16 @@ func (l *logger) close() error {
 	err := l.file.Close()
 	l.file = nil
 	return err
+}
+
+func (l *logger) shouldRotate() bool {
+	if l.file == nil {
+		return false
+	}
+	if l.file.Name() == l.fileName() {
+		return false
+	}
+	return true
 }
 
 func (l *logger) Rotate() error {
