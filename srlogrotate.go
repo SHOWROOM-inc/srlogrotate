@@ -112,7 +112,7 @@ func (l *logger) openNew() error {
 	}
 
 	name := l.fileName()
-	mode := os.FileMode(0600)
+	mode := os.FileMode(0644)
 	info, err := os.Stat(name)
 	if err == nil {
 		mode = info.Mode()
