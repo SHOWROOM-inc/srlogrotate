@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-    infoLogFile := srlogrotate.NewLogger("/var/log/sr-god-server/default.info.log")
+    infoLogFile := srlogrotate.NewLogger("/var/log/app/default.info.log")
     core := zapcore.NewCore(encoder, zapcore.AddSync(infoLogFile), zapcore.InfoLevel),
     zap.New(core, zap.AddCaller(), zap.AddStacktrace(zap.ErrorLevel))
 }
