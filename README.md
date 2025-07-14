@@ -1,6 +1,6 @@
 # srlogrotate
 
-Go言語でSRサーバ向けのログローテーションを実現するライブラリです。
+ログローテーションを実現するライブラリです。
 
 ## 使い方
 
@@ -8,9 +8,9 @@ Go言語でSRサーバ向けのログローテーションを実現するライ�
 
 ```go
 import (
-"github.com/SHOWROOM-inc/srlogrotate"
-"go.uber.org/zap"
-"go.uber.org/zap/zapcore"
+    "github.com/SHOWROOM-inc/srlogrotate"
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
 )
 
 func main() {
